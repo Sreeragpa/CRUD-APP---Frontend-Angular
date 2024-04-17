@@ -1,0 +1,9 @@
+.profile-overlay {
+    transition: opacity 1s;
+    
+}
+
+.profile-div:hover .profile-overlay {
+    /* transition: 1s; */
+    opacity: 1;
+}

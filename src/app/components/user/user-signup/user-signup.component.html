@@ -1,5 +1,5 @@
 <form class="user-login-form flex flex-col items-center" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <div class="form-inner flex flex-col gap-5">
+    <div class="form-inner flex flex-col gap-3">
         <div class="font-bold text-xl">User SignUp</div>
         <div class="">
             <label for="username-success" class="block mb-2 text-sm font-medium ">Name</label>
@@ -9,7 +9,7 @@
                 name="name"
                 formControlName="name">
                 @if (signupForm.get('name')?.hasError('required') && signupForm.get('name')?.touched) {
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">Email required</p>
+                    <p class="m-0 text-sm text-red-600 dark:text-red-500">Email required</p>
                 }
         </div>
         <div class="">
@@ -20,7 +20,7 @@
                 name="email"
                 formControlName="email">
                 @if (signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched) {
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">Email required</p>
+                    <p class="m-0 text-sm text-red-600 dark:text-red-500">Email required</p>
                 }
         </div>
         <div class="">
@@ -31,7 +31,7 @@
                 name="phone"
                 formControlName="phone">
                 @if (signupForm.get('phone')?.hasError('required') && signupForm.get('phone')?.touched) {
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">Phone required</p>
+                    <p class="m-0 text-sm text-red-600 dark:text-red-500">Phone required</p>
                 }
         </div>
         <div class="">
@@ -42,7 +42,7 @@
                 name="password"
                 formControlName="password">
                 @if (signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched) {
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">Password required</p>
+                    <p class="m-0 text-sm text-red-600 dark:text-red-500">Password required</p>
                 }
         </div>
         <div>

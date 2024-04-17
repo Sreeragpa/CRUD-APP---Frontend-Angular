@@ -1,19 +1,28 @@
-<form class="user-login-form flex flex-col items-center">
+<form class="user-login-form flex flex-col items-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
     <div class="form-inner flex flex-col gap-5">
         <div class="font-bold text-xl">Admin Login</div>
         <div class="">
             <label for="username-success" class="block mb-2 text-sm font-medium ">Email</label>
             <input type="text" id="username-success"
                 class=" dark:placeholder-green-500 text-sm rounded-lg focus:ring-blue-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500"
-                placeholder="Email">
+                placeholder="Email"  formControlName="email">
+                @if (loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched ) {
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">Email Required</p>
+                }
             <!-- <p class="mt-2 text-sm text-green-600 dark:text-green-500"><span class="font-medium">Alright!</span> Username available!</p> -->
         </div>
         <div class="">
             <label for="username-error" class="block mb-2 text-sm font-medium ">Password</label>
             <input type="password" id="username-error"
                 class=" text-sm rounded-lg focus:ring-blue-500 dark:bg-gray-700  block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500"
-                placeholder="Password">
+                placeholder="Password" formControlName="password">
             <!-- <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Username already taken!</p> -->
+            @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched ) {
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500">Password Required</p>
+            }
+            @if(error){
+                <p class="text-red-600">{{error}}</p>
+            }
         </div>
         <div>
             <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
